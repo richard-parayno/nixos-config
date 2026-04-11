@@ -14,6 +14,7 @@
         self.nixosModules.obs # obs with plugins
         self.nixosModules.browser # browsers
         self.nixosModules.fonts # font packages and fontconfig
+        self.nixosModules.cursor # cursor install
         self.nixosModules.usenet # usenet
         self.nixosModules.common-utils # common system packages
         self.nixosModules.common-apps # common applications

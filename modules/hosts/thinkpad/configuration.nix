@@ -26,6 +26,7 @@ in
         self.nixosModules.dms # dank-material-shell
         self.nixosModules.fprint # fingerprint reader
         self.nixosModules.common-system-config # common system-level settings
+        self.nixosModules.tlp # power config
       ];
 
       home-manager = {
@@ -64,7 +65,8 @@ in
       # Services
       services.fwupd.enable = true;
       services.thinkfan.enable = true;
-      services.thermald.enable = true;
+      services.upower.enable = true; # to get battery icons on laptops
+      # services.thermald.enable = true;
       # System-wide setting, but make sure your DE/WM doesn't override this (like Niri)
       services.libinput.touchpad.disableWhileTyping = true;
       services.libinput.touchpad.tapping = false;
@@ -97,6 +99,8 @@ in
         MOZ_ENABLE_WAYLAND = "1";
         ELECTRON_OZONE_PLATFORM_HINT = "wayland";
       };
+
+      environment.variables.XCURSOR_SIZE = "40";
 
       # Hibernation settings
       boot.resumeDevice = "/dev/disk/by-uuid/86c92295-667b-4029-9f80-7c67d2832129";

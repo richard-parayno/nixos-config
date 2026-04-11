@@ -47,6 +47,9 @@
       programs.zsh.enable = true;
       programs.fish.enable = true;
 
+      # prompt
+      programs.starship.enable = true;
+
       # enable direnv but clean up the outputs when it activates
       programs.direnv.enable = true;
       programs.direnv.settings = {

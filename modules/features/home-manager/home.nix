@@ -24,8 +24,12 @@ in
 
   flake.homeModules.${userName} =
     { pkgs, config, ... }:
+    let
+      sshPath = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+    in
     {
       imports = [
+        self.homeModules.niri
         self.homeModules.cursor
         self.homeModules.figma-agent
       ];
@@ -38,6 +42,7 @@ in
 
       programs.git = {
         enable = true;
+        lfs.enable = true;
         settings.user = {
           name = gitName;
           email = gitEmail;
@@ -45,6 +50,7 @@ in
         signing = {
           format = "ssh";
           signByDefault = true;
+          key = sshPath;
         };
       };
 

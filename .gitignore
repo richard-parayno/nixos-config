@@ -1,2 +1,7 @@
 # block assets folder from being checked in to repo
 assets/*
+
+# do not include builds lol
+result/
+
+secrets.nix
