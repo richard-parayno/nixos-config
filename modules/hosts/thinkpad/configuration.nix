@@ -22,11 +22,13 @@ in
         self.nixosModules.thinkpad-hardware # hardware configuration
         self.nixosModules.user # user account
         self.nixosModules.niri # window manager
-        self.nixosModules.ly # login manager
-        self.nixosModules.dms # dank-material-shell
+        # self.nixosModules.ly # login manager
+        # self.nixosModules.dms # dank-material-shell
+        self.nixosModules.noctalia # noctalia-shell
         self.nixosModules.fprint # fingerprint reader
         self.nixosModules.common-system-config # common system-level settings
         self.nixosModules.tlp # power config
+
       ];
 
       home-manager = {

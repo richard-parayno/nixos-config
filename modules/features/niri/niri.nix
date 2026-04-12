@@ -21,6 +21,24 @@
         source = create_symlink niri_config;
         force = true; # niri-config.kdl will always be the source of truth
       };
+
+      xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          kdePackages.xdg-desktop-portal-kde
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-gnome
+        ];
+        wlr.enable = true;
+        config = {
+          niri = {
+            "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+            "org.freedesktop.impl.portal.Screenshot" = "gnome";
+            "org.freedesktop.impl.portal.RemoteDesktop" = "gnome";
+            "org.freedesktop.impl.portal.FileChooser" = "gnome";
+          };
+        };
+      };
     };
   flake.nixosModules.niri =
     { pkgs, lib, ... }:
@@ -32,10 +50,24 @@
         mako
         swayidle
         xwayland-satellite
+        adw-gtk3
         kdePackages.qt6ct
         kdePackages.ark # preferred graphical unrar
         kdePackages.okular # preferred pdf reader
       ];
+
+      services.displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+
+      security.pam.services.gdm = {
+        fprintAuth = true;
+        kwallet = {
+          enable = true;
+          package = pkgs.kdePackages.kwallet-pam;
+        };
+      };
 
       programs.niri = {
         enable = true;

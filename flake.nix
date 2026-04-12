@@ -13,6 +13,7 @@
     # browsers
     helium.url = "github:schembriaiden/helium-browser-nix-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
   };
 
   outputs =
