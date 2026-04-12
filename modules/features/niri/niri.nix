@@ -33,6 +33,8 @@
         swayidle
         xwayland-satellite
         kdePackages.qt6ct
+        kdePackages.ark # preferred graphical unrar
+        kdePackages.okular # preferred pdf reader
       ];
 
       programs.niri = {

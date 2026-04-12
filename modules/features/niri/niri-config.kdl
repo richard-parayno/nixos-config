@@ -92,7 +92,7 @@ hotkey-overlay {
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    slowdown 0.75
+    slowdown 0.40
 }
 
 
@@ -256,10 +256,10 @@ window-rule {
     max-height 400
 }
 
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
+// window-rule {
+//     geometry-corner-radius 12
+//     clip-to-geometry true
+// }
 
 gestures {
     hot-corners {
