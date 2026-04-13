@@ -551,3 +551,5 @@ output "eDP-1" {
 // include "dms/cursor.kdl"
 
 spawn-at-startup "noctalia-shell"
+
+include "./noctalia.kdl"

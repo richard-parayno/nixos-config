@@ -28,8 +28,8 @@
           kdePackages.xdg-desktop-portal-kde
           xdg-desktop-portal-gtk
           xdg-desktop-portal-gnome
+          xdg-desktop-portal-wlr
         ];
-        wlr.enable = true;
         config = {
           niri = {
             "org.freedesktop.impl.portal.ScreenCast" = "gnome";
@@ -63,10 +63,15 @@
 
       security.pam.services.gdm = {
         fprintAuth = true;
-        kwallet = {
-          enable = true;
-          package = pkgs.kdePackages.kwallet-pam;
-        };
+        enableGnomeKeyring = true;
+        # kwallet = {
+        #   enable = true;
+        #   package = pkgs.kdePackages.kwallet-pam;
+        # };
+      };
+
+      security.pam.services.login = {
+        enableGnomeKeyring = true;
       };
 
       programs.niri = {

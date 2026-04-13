@@ -6,6 +6,7 @@
       environment.systemPackages = with pkgs; [
         discord
         vesktop
+        slack
         telegram-desktop
         spotify
         libreoffice-qt
