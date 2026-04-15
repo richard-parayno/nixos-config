@@ -2,6 +2,6 @@
 assets/*
 
 # do not include builds lol
-result/
+result/*
 
 secrets.nix

@@ -35,6 +35,7 @@
         theme-obsidian2
         gnome-themes-extra
         # end themes
+        easyeffects # audio effects for pipewire
       ];
 
       # enable nh (nix helper)

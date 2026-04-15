@@ -77,13 +77,6 @@ in
       services.xserver.enable = true;
       services.xserver.videoDrivers = [ "modesetting" ];
 
-      # Laptop Lid
-      services.logind.settings.Login = {
-        HandleLidSwitch = "suspend";
-        HandleLidSwitchExternalPower = "lock";
-        HandleLidSwitchDocked = "ignore";
-      };
-
       # Graphics
       hardware.graphics = {
         enable = true;

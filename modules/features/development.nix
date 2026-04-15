@@ -43,6 +43,19 @@
         hugo
       ];
 
+      # enable tmux
+      programs.tmux = {
+        enable = true;
+        clock24 = true;
+        extraConfig = ''
+          set -g extended-keys on
+          set -g extended-keys-format csi-u
+        '';
+      };
+
+      # enable dynamically linked non-nix executables
+      programs.nix-ld.enable = true;
+
       # shells
       programs.zsh.enable = true;
       programs.fish.enable = true;

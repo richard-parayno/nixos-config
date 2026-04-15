@@ -28,9 +28,6 @@ input {
         scroll-factor 0.4
     }
 
-    mouse {
-    }
-
     trackpoint {
         accel-speed 0.1
     }
@@ -39,41 +36,11 @@ input {
 }
 
 
-// Uncomment if you're not using DMS
-// cursor {
-//     xcursor-theme "Kitasan-Black"
-//     xcursor-size 32
-// }
+cursor {
+    xcursor-theme "Kitasan-Black"
+    xcursor-size 32
+}
 
-
-// layout {
-//     gaps 16
-//     background-color "transparent"
-//     always-center-single-column
-
-//     center-focused-column "never"
-
-//     preset-column-widths {
-//         proportion 0.33333
-//         proportion 0.5
-//         proportion 0.66667
-//     }
-
-//     default-column-width { proportion 0.66; }
-
-//     // focus-ring {
-//     //     width 3
-//     //     active-color "#c29457"
-//     //     inactive-color "#505050"
-//     // }
-
-//     shadow {
-//         softness 30
-//         spread 5
-//         offset x=0 y=5
-//         color "#0007"
-//     }
-// }
 
 layer-rule {
     match namespace="^quickshell$"
@@ -123,22 +90,6 @@ window-rule {
     open-focused false
 }
 
-// DMS recommended rules
-window-rule {
-    match app-id=r#"^org\.gnome\."#
-    draw-border-with-background false
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    match app-id="Alacritty"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
-    match app-id="kitty"
-    draw-border-with-background false
-}
 
 window-rule {
     match app-id="Zoom Workplace" title=".*menu.*"
@@ -154,15 +105,10 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
-// Open DMS windows as floating by default
-window-rule {
-    match app-id=r#"org.quickshell$"#
-    open-floating true
-}
 
 window-rule {
     match app-id=r#"zen-beta$"#
@@ -227,8 +173,6 @@ window-rule {
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
 }
-
-// spawn-at-startup "Telegram"
 
 // window rule for steam notifications
 window-rule {
@@ -535,20 +479,18 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+// laptop monitor
 output "eDP-1" {
     mode "1920x1200"
     scale 1
 }
 
-
-
-// include "dms/colors.kdl"
-// include "dms/layout.kdl"
-// include "dms/alttab.kdl"
-// include "dms/outputs.kdl"
-// include "dms/binds.kdl"
-
-// include "dms/cursor.kdl"
+// desk monitor
+output "GIGA-BYTE TECHNOLOGY CO., LTD. M27Q X 23280B003180" {
+    mode "2560x1440@164.999"
+    variable-refresh-rate on-demand=true
+    position x=-1200 y=0
+}
 
 spawn-at-startup "noctalia-shell"
 

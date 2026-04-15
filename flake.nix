@@ -7,6 +7,7 @@
     import-tree.url = "github:vic/import-tree";
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";

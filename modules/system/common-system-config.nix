@@ -18,6 +18,7 @@
         self.nixosModules.usenet # usenet
         self.nixosModules.common-utils # common system packages
         self.nixosModules.common-apps # common applications
+        self.nixosModules.flatpak # flatpak support
       ];
 
       # Enable flakes
