@@ -1,10 +1,14 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.development =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
+    let
+      userName = "richard";
+    in
     {
       imports = [
         self.nixosModules.lsp
+        self.nixosModules.hermes-agent
       ];
 
       environment.systemPackages = with pkgs; [
@@ -43,6 +47,9 @@
         hugo
       ];
 
+      # set nvim as default editor
+      programs.neovim.defaultEditor = true;
+
       # enable tmux
       programs.tmux = {
         enable = true;
@@ -50,6 +57,8 @@
         extraConfig = ''
           set -g extended-keys on
           set -g extended-keys-format csi-u
+          set -g mouse on
+          set -sg escape-time 0
         '';
       };
 
@@ -71,14 +80,28 @@
         };
       };
 
-      # Enable Docker Rootless Mode
-      virtualisation.docker = {
-        enable = false; # disable system docker daemon
-
-        rootless = {
-          enable = true; # but enable rootless docker
-          setSocketVariable = true;
+      # enable podman and explicitly disable docker
+      virtualisation = {
+        docker.enable = false;
+        containers.enable = true;
+        podman = {
+          enable = true;
+          dockerCompat = true;
+          defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
         };
       };
+
+      # enable passwordless sudo for podman
+      security.sudo.extraRules = [
+        {
+          users = [ userName ];
+          commands = [
+            {
+              command = "/run/current-system/sw/bin/podman";
+              options = [ "NOPASSWD" ];
+            }
+          ];
+        }
+      ];
     };
 }

@@ -21,7 +21,8 @@ in
         inputs.home-manager.nixosModules.home-manager
         self.nixosModules.thinkpad-hardware # hardware configuration
         self.nixosModules.user # user account
-        self.nixosModules.niri # window manager
+        # self.nixosModules.niri # window manager
+        self.nixosModules.mango # try mango wm
         # self.nixosModules.ly # login manager
         # self.nixosModules.dms # dank-material-shell
         self.nixosModules.noctalia # noctalia-shell
@@ -38,13 +39,16 @@ in
       };
 
       # use agenix
-      age.secrets.github-pat.file = ../../../secrets/github-pat.age;
+      age.secrets.github-pat.file = self + /secrets/github-pat.age;
 
       nix.settings.experimental-features = [
         "nix-command"
         "flakes"
       ];
-      nix.settings.access-tokens = config.age.secrets.github-pat.path;
+
+      nix.extraOptions = ''
+        !include ${config.age.secrets.github-pat.path}
+      '';
 
       # Bootloader
       boot.loader.efi.canTouchEfiVariables = true;

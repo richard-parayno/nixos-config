@@ -2,16 +2,16 @@ prefer-no-csd
 
 spawn-at-startup "niri-float-sticky"
 
-workspace "chat"
-workspace "nixos"
-workspace "llm"
-workspace "fun-dev"
-workspace "nvg-dev"
 workspace "main" {
     layout {
         center-focused-column "always"
     }
 }
+workspace "chat"
+workspace "nixos"
+workspace "llm"
+workspace "fun-dev"
+workspace "nvg-dev"
 
 
 input {

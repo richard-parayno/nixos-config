@@ -11,6 +11,13 @@
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent/6fb69229caba4bd5699228e520de4956b3458187";
+    };
+    mango = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # browsers
     helium.url = "github:schembriaiden/helium-browser-nix-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";

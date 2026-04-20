@@ -22,6 +22,7 @@ in
           "wheel"
           "plugdev"
           "gamemode"
+          "podman"
         ];
         shell = pkgs.fish;
       };

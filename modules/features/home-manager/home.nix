@@ -29,7 +29,9 @@ in
     in
     {
       imports = [
-        self.homeModules.niri
+        # self.homeModules.niri
+        inputs.mango.hmModules.mango
+        self.homeModules.mango
         self.homeModules.cursor
         self.homeModules.figma-agent
       ];
