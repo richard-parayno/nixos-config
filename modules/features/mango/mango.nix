@@ -17,15 +17,34 @@
         force = true; # mango.conf will always be the source of truth
       };
 
+      xdg.configFile."mango/config.conf".force = true;
+
       wayland.windowManager.mango = {
         enable = true;
         autostart_sh = ''
-          	  noctalia-shell
+          noctalia-shell
         '';
         settings = ''
           source=~/.config/mango/mango.conf
         '';
         # extraConfig = lib.readFile ./mango.conf;
+      };
+
+      xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal
+        ];
+        config = {
+          mango = {
+            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+            "org.freedesktop.impl.portal.Screenshot" = "wlr";
+            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+            "org.freedesktop.impl.portal.FileChooser" = "gtk";
+          };
+        };
       };
     };
 
@@ -55,5 +74,10 @@
       };
 
       programs.mango.enable = true;
+
+      environment.sessionVariables = {
+        XDG_CURRENT_DESKTOP = "mango";
+        QT_QPA_PLATFORM = "wayland";
+      };
     };
 }
