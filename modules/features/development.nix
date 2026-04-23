@@ -47,6 +47,8 @@
         python315
         bun
         hugo
+        # virtualization related
+        dnsmasq
       ];
 
       # enable nix-index-database and wrap comma
@@ -123,6 +125,13 @@
           defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
         };
       };
+
+      # enable qemu + virtmanager
+      virtualisation.libvirtd.enable = true;
+      virtualisation.libvirtd.qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+      services.qemuGuest.enable = true;
+      services.spice-vdagentd.enable = true;
+      programs.virt-manager.enable = true;
 
       # enable passwordless sudo for podman
       security.sudo.extraRules = [

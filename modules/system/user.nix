@@ -23,6 +23,7 @@ in
           "plugdev"
           "gamemode"
           "podman"
+          "libvirtd"
         ];
         shell = pkgs.fish;
       };
