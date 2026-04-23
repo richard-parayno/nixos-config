@@ -1,12 +1,11 @@
 { self, inputs, ... }:
 {
-  flake.nixosConfigurations.thinkpad = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.netrunner = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel-gen6
       inputs.agenix.nixosModules.default
       inputs.nix-flatpak.nixosModules.nix-flatpak
       inputs.hermes-agent.nixosModules.default
-      self.nixosModules.thinkpadConfiguration
+      self.nixosModules.netrunnerConfiguration
       inputs.mango.nixosModules.mango
       inputs.nix-index-database.nixosModules.default
     ];

@@ -33,19 +33,23 @@
         zellij
         lazygit
         mise
+        bubblewrap
         # Editors
         neovim
         helix
         zed-editor-fhs
         # AI
         opencode
-        pi-coding-agent
-        codex
+        agent-browser
         # dev utils
         nodejs_25
+        python315
         bun
         hugo
       ];
+
+      # enable nix-index-database and wrap comma
+      programs.nix-index-database.comma.enable = true;
 
       # set nvim as default editor
       programs.neovim.defaultEditor = true;
@@ -54,16 +58,44 @@
       programs.tmux = {
         enable = true;
         clock24 = true;
+        plugins = [
+          pkgs.tmuxPlugins.resurrect
+          pkgs.tmuxPlugins.continuum
+          pkgs.tmuxPlugins.yank
+        ];
         extraConfig = ''
           set -g extended-keys on
           set -g extended-keys-format csi-u
           set -g mouse on
           set -sg escape-time 0
+          set -g status-right 'Continuum status: #{continuum_status}'
         '';
       };
 
       # enable dynamically linked non-nix executables
       programs.nix-ld.enable = true;
+      programs.nix-ld.libraries = with pkgs; [
+        glib
+        nspr
+        nss
+        atk
+        at-spi2-atk
+        dbus
+        cups
+        expat
+        alsa-lib
+        cairo
+        libgbm
+        libx11
+        libxcb
+        libxcomposite
+        libxdamage
+        libxext
+        libxfixes
+        libxkbcommon
+        libxrandr
+        pango
+      ];
 
       # shells
       programs.zsh.enable = true;

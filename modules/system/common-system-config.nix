@@ -19,6 +19,8 @@
         self.nixosModules.common-utils # common system packages
         self.nixosModules.common-apps # common applications
         self.nixosModules.flatpak # flatpak support
+        # self.nixosModules.flameshot # flameshot for screenshots
+        self.nixosModules.satty # satty for screenshots
       ];
 
       # Enable flakes

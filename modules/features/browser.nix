@@ -10,8 +10,5 @@
       ];
 
       programs.firefox.enable = true;
-
-      programs.captive-browser.enable = true;
-      programs.captive-browser.interface = "wlp0s20f3";
     };
 }

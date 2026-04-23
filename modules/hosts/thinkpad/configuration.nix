@@ -68,6 +68,9 @@ in
       networking.hostName = hostName;
       networking.networkmanager.enable = true;
 
+      programs.captive-browser.enable = true;
+      programs.captive-browser.interface = "wlp0s20f3";
+
       # Services
       services.fwupd.enable = true;
       services.thinkfan.enable = true;
@@ -100,6 +103,11 @@ in
       };
 
       environment.variables.XCURSOR_SIZE = "40";
+
+      # Keep the Goodix fingerprint reader powered across re-enumeration.
+      services.udev.extraRules = ''
+        ACTION=="add", SUBSYSTEM=="usb", DRIVERS=="usb", ATTRS{idVendor}=="27c6", ATTRS{idProduct}=="659a", ATTR{power/persist}="1", RUN="/${pkgs.coreutils}/bin/chmod 444 %S%p/../power/persist"
+      '';
 
       # Hibernation settings
       boot.resumeDevice = "/dev/disk/by-uuid/86c92295-667b-4029-9f80-7c67d2832129";

@@ -18,6 +18,10 @@
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # browsers
     helium.url = "github:schembriaiden/helium-browser-nix-flake";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";

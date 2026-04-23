@@ -34,6 +34,7 @@ in
         self.homeModules.mango
         self.homeModules.cursor
         self.homeModules.figma-agent
+        # self.homeModules.flameshot
       ];
 
       home.username = userName;
