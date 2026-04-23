@@ -5,3 +5,5 @@ assets/*
 result/*
 
 secrets.nix
+
+.pi-lens/

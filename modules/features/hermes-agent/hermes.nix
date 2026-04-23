@@ -91,6 +91,7 @@
           hostUsers = [ userName ];
           extraVolumes = [
             "${config.users.users.${userName}.home}/ai-sandbox:/home/hermes/ai-sandbox:rw"
+            "${config.users.users.${userName}.home}/workdev/navegante_web:/home/hermes/navegante_web:rw"
           ]; # add the local ai-sandbox directory as a volume in docker
         };
 

@@ -34,6 +34,7 @@
         lazygit
         mise
         bubblewrap
+        distrobox
         # Editors
         neovim
         helix
