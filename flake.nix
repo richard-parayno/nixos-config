@@ -13,6 +13,7 @@
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
     hermes-agent = {
       url = "github:NousResearch/hermes-agent/6fb69229caba4bd5699228e520de4956b3458187";
+      # url = "github:NousResearch/hermes-agent";
     };
     mango = {
       url = "github:mangowm/mango";
