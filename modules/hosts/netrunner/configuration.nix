@@ -22,6 +22,7 @@ in
         self.nixosModules.common-system-config
         self.nixosModules.mango # mango wm
         self.nixosModules.noctalia # noctalia-shell
+        self.nixosModules.steam
       ];
 
       home-manager = {
@@ -73,22 +74,6 @@ in
       };
 
       services.xserver.videoDrivers = [ "nvidia" ];
-
-      programs.steam.package = pkgs.steam.override {
-        extraPkgs =
-          pkgs': with pkgs'; [
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib # Provides libstdc++.so.6
-            libkrb5
-            keyutils
-          ];
-      };
 
       nixpkgs.config.nvidia.acceptLicense = true;
 
