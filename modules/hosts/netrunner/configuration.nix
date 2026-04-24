@@ -72,6 +72,8 @@ in
         };
       };
 
+      services.xserver.videoDrivers = [ "nvidia" ];
+
       programs.steam.package = pkgs.steam.override {
         extraPkgs =
           pkgs': with pkgs'; [
