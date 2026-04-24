@@ -66,7 +66,7 @@
         '';
 
         defaultFonts = {
-          sansSerif = [ "SF Pro Text" ];
+          sansSerif = [ "SF Pro Display" ];
           monospace = [
             "Berkeley Mono"
             "Symbols Nerd Font Mono"

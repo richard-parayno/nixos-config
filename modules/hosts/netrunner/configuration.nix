@@ -88,6 +88,13 @@ in
         __GL_SHADER_DISK_CACHE_SIZE = "12000000000";
       };
 
+      environment.sessionVariables = {
+        WLR_DRM_NO_ATOMIC = 1;
+        NIXOS_OZONE_WL = "1";
+        MOZ_ENABLE_WAYLAND = "1";
+        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      };
+
       services.power-profiles-daemon.enable = true;
       services.upower.enable = true;
 
