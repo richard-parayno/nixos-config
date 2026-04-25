@@ -1,12 +1,14 @@
 { ... }:
 {
-  flake.nixosModules.steam =
+  flake.nixosModules.gaming =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         gamemode
         protonup-qt
         protontricks
+        lsfg-vk
+        lsfg-vk-ui
       ];
 
       programs.steam = {

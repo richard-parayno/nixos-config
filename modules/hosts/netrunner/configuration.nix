@@ -22,7 +22,7 @@ in
         self.nixosModules.common-system-config
         self.nixosModules.mango # mango wm
         self.nixosModules.noctalia # noctalia-shell
-        self.nixosModules.steam
+        self.nixosModules.gaming # gaming packages
       ];
 
       home-manager = {
@@ -89,7 +89,7 @@ in
       };
 
       environment.sessionVariables = {
-        WLR_DRM_NO_ATOMIC = 1;
+        # WLR_DRM_NO_ATOMIC = 1;
         NIXOS_OZONE_WL = "1";
         MOZ_ENABLE_WAYLAND = "1";
         ELECTRON_OZONE_PLATFORM_HINT = "wayland";
