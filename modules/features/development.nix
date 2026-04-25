@@ -67,6 +67,11 @@
           pkgs.tmuxPlugins.yank
         ];
         extraConfig = ''
+          set -g default-shell ${pkgs.fish}/bin/fish
+          set -g @plugin 'tmux-plugins/tpm'
+          set -g @plugin 'tmux-plugins/tmux-resurrect'
+          set -g @plugin 'tmux-plugins/tmux-continuum'
+          set -g @plugin 'tmux-plugins/tmux-yank'
           set -g extended-keys on
           set -g extended-keys-format csi-u
           set -g mouse on
