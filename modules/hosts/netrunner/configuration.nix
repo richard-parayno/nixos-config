@@ -35,6 +35,7 @@ in
       boot.loader.limine = {
         enable = true;
         maxGenerations = 5;
+        secureBoot.enable = true;
       };
 
       # use agenix
