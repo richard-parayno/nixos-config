@@ -4,6 +4,4 @@ assets/*
 # do not include builds lol
 result/*
 
-secrets.nix
-
 .pi-lens/
