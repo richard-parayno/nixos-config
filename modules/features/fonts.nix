@@ -20,6 +20,9 @@
     {
       fonts.packages = with pkgs; [
         noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        noto-fonts-color-emoji
         recursive
         nerd-fonts.fira-code
         nerd-fonts.zed-mono
@@ -66,10 +69,19 @@
         '';
 
         defaultFonts = {
-          sansSerif = [ "SF Pro Display" ];
+          sansSerif = [
+            "SF Pro Display"
+            "Noto Sans CJK JP"
+            "Noto Sans"
+          ];
+          serif = [
+            "Noto Serif CJK JP"
+            "Noto Serif"
+          ];
           monospace = [
             "Berkeley Mono"
             "Symbols Nerd Font Mono"
+            "Noto Sans Mono CJK JP"
           ];
           emoji = [ "Noto Color Emoji" ];
         };

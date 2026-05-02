@@ -88,5 +88,7 @@ in
       programs.firefox.enable = true;
 
       programs.zoxide.enable = true;
+
+      nixGL.vulkan.enable = true;
     };
 }

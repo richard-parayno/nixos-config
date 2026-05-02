@@ -36,6 +36,7 @@
         gnome-themes-extra
         # end themes
         easyeffects # audio effects for pipewire
+        glib-networking
       ];
 
       # enable nh (nix helper)

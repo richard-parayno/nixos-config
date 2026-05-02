@@ -29,6 +29,7 @@
         wezterm
         foot
         # Dev tooling
+        devenv
         zoxide
         zellij
         lazygit
@@ -38,7 +39,7 @@
         # Editors
         neovim
         helix
-        zed-editor-fhs
+        inputs.zed-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
         # AI
         opencode
         agent-browser
