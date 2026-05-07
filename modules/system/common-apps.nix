@@ -20,8 +20,10 @@
     in
     {
       environment.systemPackages = with pkgs; [
-        discord
-        vesktop
+        (discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        })
         slack
         telegram-desktop
         spotify
@@ -31,6 +33,7 @@
         bitwarden-desktop
         cinny-desktop
         element-desktop-with-keyring
+        kdePackages.okular
       ];
 
     };

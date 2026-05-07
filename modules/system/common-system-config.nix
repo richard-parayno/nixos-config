@@ -96,6 +96,9 @@
       # file sharing via local network
       programs.localsend.enable = true;
 
+      # enable dconf so apps can save their configs
+      programs.dconf.enable = true;
+
       # enable zram swap so daily use doesnt get scuffed.
       zramSwap.enable = true;
       # set zram swappiness to 100 (linux default is 60)

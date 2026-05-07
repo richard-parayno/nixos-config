@@ -25,6 +25,8 @@
 
           RUNTIME_PM_ON_AC = "auto";
           RUNTIME_PM_ON_BAT = "auto";
+          USB_AUTOSUSPEND = 0;
+          USB_EXCLUDE_AUDIO = 1;
 
           CPU_MIN_PERF_ON_AC = 0;
           CPU_MAX_PERF_ON_AC = 100;

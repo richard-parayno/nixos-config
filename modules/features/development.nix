@@ -39,7 +39,8 @@
         # Editors
         neovim
         helix
-        inputs.zed-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
+        # inputs.zed-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
+        zed-editor-fhs
         # AI
         opencode
         agent-browser
