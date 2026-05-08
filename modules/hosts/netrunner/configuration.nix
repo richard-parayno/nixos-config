@@ -53,6 +53,9 @@ in
       networking.hostName = hostName;
       networking.networkmanager.enable = true;
 
+      networking.nftables.enable = true;
+      virtualisation.libvirtd.firewallBackend = "nftables";
+
       services.scx.enable = true; # enable sched-ext
       services.scx.scheduler = "scx_lavd";
 
