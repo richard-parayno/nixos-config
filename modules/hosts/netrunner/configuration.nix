@@ -50,6 +50,8 @@ in
         !include ${config.age.secrets.github-pat.path}
       '';
 
+      boot.kernelPackages = pkgs.linuxPackages_latest; # default latest from nixpkgs
+
       networking.hostName = hostName;
       networking.networkmanager.enable = true;
 
