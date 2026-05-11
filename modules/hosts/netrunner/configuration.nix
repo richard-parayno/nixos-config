@@ -21,6 +21,7 @@ in
         self.nixosModules.user
         self.nixosModules.common-system-config
         self.nixosModules.mango # mango wm
+        self.nixosModules.plasma # kde plasma
         self.nixosModules.noctalia # noctalia-shell
         self.nixosModules.gaming # gaming packages
       ];

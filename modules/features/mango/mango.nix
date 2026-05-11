@@ -59,27 +59,13 @@
         libxcb-wm
       ];
 
-      services.displayManager.gdm = {
-        enable = true;
-        wayland = true;
-      };
-
-      security.pam.services.gdm = {
-        fprintAuth = true;
-        enableGnomeKeyring = true;
-      };
-
-      security.pam.services.login = {
-        enableGnomeKeyring = true;
-      };
-
       programs.mango.enable = true;
 
       environment.sessionVariables = {
-        XDG_CURRENT_DESKTOP = "mango";
-        QT_QPA_PLATFORM = "wayland";
-        QT_QPA_PLATFORMTHEME = "gtk3";
-        QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
+        # XDG_CURRENT_DESKTOP = "mango";
+        # QT_QPA_PLATFORM = "wayland";
+        # QT_QPA_PLATFORMTHEME = "gtk3";
+        # QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
       };
     };
 }
