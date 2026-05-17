@@ -37,6 +37,7 @@
         # end themes
         easyeffects # audio effects for pipewire
         glib-networking
+        restic # backups
       ];
 
       # enable nh (nix helper)

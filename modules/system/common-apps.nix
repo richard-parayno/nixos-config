@@ -29,11 +29,25 @@
         spotify
         libreoffice-qt
         obsidian
+        logseq
         ytmdesktop
         bitwarden-desktop
         cinny-desktop
         element-desktop-with-keyring
         kdePackages.okular
+        kdePackages.ark
+        zoom-us
+        kora-icon-theme
+        koreader
+        themechanger
+        catppuccin-kde
+        catppuccin-kvantum
+        kdePackages.oxygen
+        kdePackages.oxygen-icons
+        kdePackages.oxygen-sounds
+        oxygenfonts
+        kdePackages.qtstyleplugin-kvantum
+        calibre
       ];
 
     };

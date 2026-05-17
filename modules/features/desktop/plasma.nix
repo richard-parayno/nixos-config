@@ -15,5 +15,9 @@
         kwallet.enable = true;
         pamMount = true;
       };
+
+      xdg.portal.configPackages = with pkgs; [
+        kdePackages.plasma-workspace
+      ];
     };
 }

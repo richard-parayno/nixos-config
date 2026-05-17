@@ -30,6 +30,7 @@ in
         self.nixosModules.fprint # fingerprint reader
         self.nixosModules.common-system-config # common system-level settings
         self.nixosModules.tlp # power config
+        self.nixosModules.gaming # gaming packages
 
       ];
 
@@ -68,6 +69,19 @@ in
       # Networking
       networking.hostName = hostName;
       networking.networkmanager.enable = true;
+
+      fileSystems."/mnt/nas-richard" = {
+        device = "//192.168.1.105/richard";
+        fsType = "cifs";
+        options =
+          let
+            # this line prevents hanging on network split
+            automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+          in
+          [
+            "${automount_opts},credentials=/etc/nixos/smb-secrets,uid=${toString config.users.users.richard.uid},gid=${toString config.users.groups.users.gid}"
+          ];
+      };
 
       programs.captive-browser.enable = true;
       programs.captive-browser.interface = "wlp0s20f3";

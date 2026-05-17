@@ -30,22 +30,6 @@
         # extraConfig = lib.readFile ./mango.conf;
       };
 
-      xdg.portal = {
-        enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal
-        ];
-        config = {
-          mango = {
-            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-            "org.freedesktop.impl.portal.Screenshot" = "wlr";
-            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
-            "org.freedesktop.impl.portal.FileChooser" = "gtk";
-          };
-        };
-      };
     };
 
   flake.nixosModules.mango =
@@ -60,6 +44,30 @@
       ];
 
       programs.mango.enable = true;
+
+      xdg.portal = {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-gtk
+          xdg-desktop-portal-wlr
+          xdg-desktop-portal
+          kdePackages.xdg-desktop-portal-kde
+        ];
+        xdgOpenUsePortal = true;
+        config = {
+          mango = {
+            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+            "org.freedesktop.impl.portal.Screenshot" = "wlr";
+            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+            "org.freedesktop.impl.portal.FileChooser" = "gtk";
+          };
+          kde = {
+            "org.freedesktop.impl.portal.ScreenCast" = "kde";
+            "org.freedesktop.impl.portal.Screenshot" = "kde";
+            "org.freedesktop.impl.portal.FileChooser" = "kde";
+          };
+        };
+      };
 
       environment.sessionVariables = {
         # XDG_CURRENT_DESKTOP = "mango";
