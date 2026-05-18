@@ -24,6 +24,7 @@ in
           "gamemode"
           "podman"
           "libvirtd"
+          "uinput"
         ];
         shell = pkgs.fish;
       };

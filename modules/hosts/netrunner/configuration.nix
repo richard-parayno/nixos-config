@@ -24,6 +24,7 @@ in
         self.nixosModules.plasma # kde plasma
         self.nixosModules.noctalia # noctalia-shell
         self.nixosModules.gaming # gaming packages
+        self.nixosModules.sunshine
       ];
 
       home-manager = {
