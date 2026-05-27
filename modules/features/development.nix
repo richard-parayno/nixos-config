@@ -45,7 +45,7 @@
         opencode
         agent-browser
         # dev utils
-        nodejs_25
+        nodejs_latest
         python315
         bun
         hugo
