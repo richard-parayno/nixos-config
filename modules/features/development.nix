@@ -1,7 +1,11 @@
 { self, inputs, ... }:
 {
   flake.nixosModules.development =
-    { pkgs, config, ... }:
+    {
+      pkgs,
+      config,
+      ...
+    }:
     let
       userName = "richard";
     in
@@ -43,6 +47,7 @@
         zed-editor-fhs
         # AI
         opencode
+        opencode-desktop
         agent-browser
         # dev utils
         nodejs_latest
@@ -82,30 +87,40 @@
         '';
       };
 
-      # enable dynamically linked non-nix executables
-      programs.nix-ld.enable = true;
-      programs.nix-ld.libraries = with pkgs; [
-        glib
-        nspr
-        nss
-        atk
-        at-spi2-atk
-        dbus
-        cups
-        expat
-        alsa-lib
-        cairo
-        libgbm
-        libx11
-        libxcb
-        libxcomposite
-        libxdamage
-        libxext
-        libxfixes
-        libxkbcommon
-        libxrandr
-        pango
-      ];
+      # Support binaries downloaded outside of Nix, like agent-browser's Chrome.
+      programs.nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+          glib
+          nspr
+          nss
+          atk
+          at-spi2-atk
+          at-spi2-core
+          dbus
+          cups
+          expat
+          alsa-lib
+          cairo
+          gtk3
+          libgbm
+          libx11
+          libxcb
+          libxcomposite
+          libxcursor
+          libxdamage
+          libxext
+          libxfixes
+          libxi
+          libxkbcommon
+          libxrandr
+          libxrender
+          libxscrnsaver
+          libxtst
+          pango
+          xorg.libXinerama
+        ];
+      };
 
       # shells
       programs.zsh.enable = true;
