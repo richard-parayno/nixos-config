@@ -43,6 +43,7 @@
         # Editors
         neovim
         helix
+        code-cursor-fhs
         # inputs.zed-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
         zed-editor-fhs
         # AI

@@ -13,6 +13,7 @@
           9296
           9295
           8080
+          9090
         ];
         allowedTCPPortRanges = [
           {

@@ -10,6 +10,10 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
+    codex-desktop-linux = {
+      url = "github:ilysenko/codex-desktop-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
     hermes-agent = {
       url = "github:NousResearch/hermes-agent/6fb69229caba4bd5699228e520de4956b3458187";

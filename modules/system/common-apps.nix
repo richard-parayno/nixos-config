@@ -19,6 +19,15 @@
           '';
     in
     {
+      imports = [ inputs.codex-desktop-linux.nixosModules.default ];
+
+      programs.codexDesktopLinux = {
+        enable = true;
+        computerUseUi.enable = true;
+        remoteMobileControl.enable = true;
+        remoteControl.enable = true;
+      };
+
       environment.systemPackages = with pkgs; [
         (discord.override {
           withOpenASAR = true;
@@ -36,7 +45,7 @@
         element-desktop-with-keyring
         kdePackages.okular
         kdePackages.ark
-        zoom-us
+        # zoom-us
         kora-icon-theme
         koreader
         themechanger

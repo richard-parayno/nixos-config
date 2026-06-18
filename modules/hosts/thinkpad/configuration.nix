@@ -23,7 +23,8 @@ in
         self.nixosModules.user # user account
         # self.nixosModules.niri # window manager
         self.nixosModules.mango # try mango wm
-        self.nixosModules.plasma # kde plasma
+        # self.nixosModules.plasma # kde plasma
+        self.nixosModules.gnome # gnome
         # self.nixosModules.ly # login manager
         # self.nixosModules.dms # dank-material-shell
         self.nixosModules.noctalia # noctalia-shell
