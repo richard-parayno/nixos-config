@@ -25,6 +25,7 @@ in
         # self.nixosmodules.gnome # gnome
         self.nixosModules.noctalia # noctalia-shell
         self.nixosModules.gaming # gaming packages
+        self.nixosModules.vr # vr support
         self.nixosModules.sunshine
       ];
 

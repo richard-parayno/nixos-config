@@ -38,8 +38,8 @@
         spotify
         libreoffice-qt
         obsidian
-        logseq
-        ytmdesktop
+        # logseq
+        # ytmdesktop
         bitwarden-desktop
         cinny-desktop
         element-desktop-with-keyring
