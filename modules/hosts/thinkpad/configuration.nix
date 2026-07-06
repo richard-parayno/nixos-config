@@ -89,7 +89,7 @@ in
 
       # Services
       services.fwupd.enable = true;
-      services.thinkfan.enable = true;
+      # services.thinkfan.enable = true;
       services.upower.enable = true; # to get battery icons on laptops
       # services.thermald.enable = true;
       # System-wide setting, but make sure your DE/WM doesn't override this (like Niri)

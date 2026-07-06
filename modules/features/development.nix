@@ -26,6 +26,7 @@
         gnupg
         pinentry-all
         wl-clipboard
+        ripgrep
         # TTYs
         ghostty
         alacritty
