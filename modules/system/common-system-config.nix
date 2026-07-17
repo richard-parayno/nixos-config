@@ -21,6 +21,7 @@
         self.nixosModules.flatpak # flatpak support
         # self.nixosModules.flameshot # flameshot for screenshots
         self.nixosModules.satty # satty for screenshots
+        self.nixosModules.openwhispr # local dictation + transcription
       ];
 
       # Enable flakes
@@ -66,7 +67,7 @@
 
       # SMB Usershares
       services.samba = {
-        package = pkgs.samba4Full;
+        package = pkgs.samba;
         usershares.enable = true;
         enable = true;
         openFirewall = true;

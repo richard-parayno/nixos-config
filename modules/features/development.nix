@@ -27,6 +27,7 @@
         pinentry-all
         wl-clipboard
         ripgrep
+        ydotool
         # TTYs
         ghostty
         alacritty
@@ -34,6 +35,7 @@
         wezterm
         foot
         # Dev tooling
+        herdr
         devenv
         zoxide
         zellij
@@ -48,8 +50,8 @@
         # inputs.zed-flake.packages.${pkgs.stdenv.hostPlatform.system}.default
         zed-editor-fhs
         # AI
-        opencode
-        opencode-desktop
+        # opencode
+        # opencode-desktop
         agent-browser
         # dev utils
         nodejs_latest
@@ -58,6 +60,7 @@
         hugo
         # virtualization related
         dnsmasq
+
       ];
 
       # enable nix-index-database and wrap comma
@@ -139,14 +142,14 @@
         };
       };
 
-      # enable podman and explicitly disable docker
+      # enable docker
       virtualisation = {
-        docker.enable = false;
-        containers.enable = true;
-        podman = {
+        docker = {
           enable = true;
-          dockerCompat = true;
-          defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other.
+          rootless = {
+            enable = true;
+            setSocketVariable = true;
+          };
         };
       };
 
@@ -157,13 +160,13 @@
       services.spice-vdagentd.enable = true;
       programs.virt-manager.enable = true;
 
-      # enable passwordless sudo for podman
+      # enable passwordless sudo for docker
       security.sudo.extraRules = [
         {
           users = [ userName ];
           commands = [
             {
-              command = "/run/current-system/sw/bin/podman";
+              command = "/run/current-system/sw/bin/docker";
               options = [ "NOPASSWD" ];
             }
           ];

@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       services.sabnzbd = {
-        enable = true;
+        enable = false;
         openFirewall = true;
       };
 

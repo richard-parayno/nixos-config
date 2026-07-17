@@ -15,10 +15,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+    # ai agent tools
+    openwhispr.url = "github:openwhispr/openwhispr";
+    herdr.url = "github:ogulcancelik/herdr";
     hermes-agent = {
       url = "github:NousResearch/hermes-agent/6fb69229caba4bd5699228e520de4956b3458187";
       # url = "github:NousResearch/hermes-agent";
     };
+    numtide-llm-agents.url = "github:numtide/llm-agents.nix";
     mango = {
       url = "github:mangowm/mango";
       inputs.nixpkgs.follows = "nixpkgs";
