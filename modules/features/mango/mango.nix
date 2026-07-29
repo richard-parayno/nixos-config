@@ -24,10 +24,9 @@
         autostart_sh = ''
           noctalia-shell
         '';
-        settings = ''
+        extraConfig = ''
           source=~/.config/mango/mango.conf
         '';
-        # extraConfig = lib.readFile ./mango.conf;
       };
 
     };
@@ -43,22 +42,23 @@
         libxcb-wm
       ];
 
-      programs.mango.enable = true;
+      programs.mango = {
+        enable = true;
+        package = inputs.mango.packages.${pkgs.stdenv.hostPlatform.system}.mango;
+      };
 
       xdg.portal = {
         enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-gtk
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal
-          kdePackages.xdg-desktop-portal-kde
-        ];
+        # extraPortals = with pkgs; [
+        #   xdg-desktop-portal-gtk
+        #   xdg-desktop-portal-wlr
+        #   xdg-desktop-portal
+        #   kdePackages.xdg-desktop-portal-kde
+        # ];
         xdgOpenUsePortal = true;
         config = {
           mango = {
-            "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-            "org.freedesktop.impl.portal.Screenshot" = "wlr";
-            "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+            "org.freedesktop.impl.portal.Secret" = lib.mkForce "kwallet";
             "org.freedesktop.impl.portal.FileChooser" = "gtk";
           };
           kde = {

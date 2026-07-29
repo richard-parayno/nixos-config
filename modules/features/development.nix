@@ -17,6 +17,7 @@
 
       environment.systemPackages = with pkgs; [
         # core
+        jq
         fastfetch
         unzip
         unrar

@@ -9,12 +9,12 @@
         enable = true;
       };
 
-      security.pam.services.plasma-login-manager = {
-        fprintAuth = true;
-        # enableGnomeKeyring = true;
-        kwallet.enable = true;
-        pamMount = true;
-      };
+      # security.pam.services.plasmalogin = {
+      #   fprintAuth = true;
+      #   # enableGnomeKeyring = true;
+      #   kwallet.enable = true;
+      #   pamMount = true;
+      # };
 
       xdg.portal.configPackages = with pkgs; [
         kdePackages.plasma-workspace

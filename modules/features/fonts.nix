@@ -42,6 +42,7 @@
       fonts.enableDefaultPackages = true;
       fonts.fontconfig = {
         enable = true;
+        includeUserConf = true;
         antialias = true;
         hinting = {
           enable = true;
@@ -60,10 +61,6 @@
                 <string>SF Pro</string>
               </test>
               <edit name="autohint" mode="assign"><bool>false</bool></edit>
-              <edit name="hinting" mode="assign"><bool>true</bool></edit>
-              <edit name="hintstyle" mode="assign"><const>hintslight</const></edit>
-              <edit name="antialias" mode="assign"><bool>true</bool></edit>
-              <edit name="lcdfilter" mode="assign"><const>lcddefault</const></edit>
             </match>
           </fontconfig>
         '';
