@@ -125,6 +125,7 @@
           libxtst
           pango
           xorg.libXinerama
+          libelf
         ];
       };
 

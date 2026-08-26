@@ -32,7 +32,7 @@
         adwaita-icon-theme
         arashi
         iconpack-obsidian
-        theme-obsidian2
+        # theme-obsidian2
         gnome-themes-extra
         # end themes
         easyeffects # audio effects for pipewire
