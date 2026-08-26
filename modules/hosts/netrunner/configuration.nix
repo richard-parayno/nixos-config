@@ -63,8 +63,7 @@ in
       networking.nftables.enable = true;
       virtualisation.libvirtd.firewallBackend = "nftables";
 
-      services.scx.enable = true; # enable sched-ext
-      services.scx.scheduler = "scx_lavd";
+      services.scx.enable = false;
 
       hardware = {
         nvidia = {
