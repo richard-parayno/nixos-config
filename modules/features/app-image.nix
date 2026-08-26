@@ -4,8 +4,8 @@
     { pkgs, ... }:
     {
       # add gearlever, a tool to help us integrate app images to the system
-      environment.systemPackages = with pkgs; [
-        gearlever
+      environment.systemPackages = [
+        inputs.gearlever-nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.gearlever
       ];
       # Direct execution of AppImages on NixOS
       programs.appimage = {
