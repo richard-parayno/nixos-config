@@ -32,6 +32,7 @@ in
         self.nixosModules.common-system-config # common system-level settings
         self.nixosModules.tlp # power config
         self.nixosModules.gaming # gaming packages
+        self.nixosModules.openmw # OpenMW and modding tools
 
       ];
 

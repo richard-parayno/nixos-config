@@ -10,6 +10,10 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
+    openmw-nix = {
+      url = "git+https://codeberg.org/PopeRigby/openmw-nix.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     codex-desktop-linux = {
       url = "github:ilysenko/codex-desktop-linux";
       inputs.nixpkgs.follows = "nixpkgs";
