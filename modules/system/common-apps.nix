@@ -3,6 +3,8 @@
   flake.nixosModules.common-apps =
     { pkgs, ... }:
     let
+      userName = "richard";
+
       # Electron defaults to the unsupported/basic_text backend under Niri because
       # XDG_CURRENT_DESKTOP is "niri", even when gnome-keyring is available.
       # Force Element to use libsecret so it can use the running keyring.
@@ -19,7 +21,10 @@
           '';
     in
     {
-      imports = [ inputs.codex-desktop-linux.nixosModules.default ];
+      imports = [
+        inputs.codex-desktop-linux.nixosModules.default
+        self.nixosModules.claude-desktop
+      ];
 
       programs.codexDesktopLinux = {
         enable = true;
@@ -59,5 +64,21 @@
         calibre
       ];
 
+      # Browser integration needs the setgid /run/wrappers/bin/1Password-BrowserSupport
+      # helper that this module installs; the bare package alone can't talk to extensions.
+      programs._1password-gui = {
+        enable = true;
+        polkitPolicyOwners = [ userName ];
+      };
+
+      # 1Password only speaks to browsers on its allowlist. Helium isn't a browser it
+      # knows, so name its binary here. Needs a real file (not a store symlink) that is
+      # root-owned and not group/world writable, hence the explicit mode.
+      environment.etc."1password/custom_allowed_browsers" = {
+        text = ''
+          helium
+        '';
+        mode = "0755";
+      };
     };
 }

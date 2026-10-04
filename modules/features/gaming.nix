@@ -10,6 +10,7 @@
         lsfg-vk
         lsfg-vk-ui
         boxflat
+        deadlock-mod-manager
       ];
 
       programs.steam = {

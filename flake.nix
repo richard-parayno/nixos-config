@@ -19,6 +19,10 @@
       url = "github:ilysenko/codex-desktop-linux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-desktop = {
+      url = "github:aaddrick/claude-desktop-debian";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     quickshell.url = "git+https://git.outfoxxed.me/quickshell/quickshell";
     # ai agent tools
     openwhispr.url = "github:openwhispr/openwhispr";

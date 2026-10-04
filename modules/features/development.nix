@@ -54,6 +54,7 @@
         # opencode
         # opencode-desktop
         agent-browser
+        claude-code
         # dev utils
         nodejs_latest
         python315
@@ -63,6 +64,11 @@
         dnsmasq
 
       ];
+
+      # "Integrate with 1Password CLI" needs op to be the setgid /run/wrappers/bin/op
+      # that this module installs; the bare package can't reach the desktop app.
+      # The GUI side lives in modules/system/common-apps.nix.
+      programs._1password.enable = true;
 
       # enable nix-index-database and wrap comma
       programs.nix-index-database.comma.enable = true;
