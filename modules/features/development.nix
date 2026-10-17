@@ -12,7 +12,7 @@
     {
       imports = [
         self.nixosModules.lsp
-        self.nixosModules.hermes-agent
+        # self.nixosModules.hermes-agent
       ];
 
       environment.systemPackages = with pkgs; [
@@ -130,7 +130,7 @@
           libxscrnsaver
           libxtst
           pango
-          xorg.libXinerama
+          libxinerama
           libelf
         ];
       };
@@ -164,8 +164,6 @@
       # enable qemu + virtmanager
       virtualisation.libvirtd.enable = true;
       virtualisation.libvirtd.qemu.vhostUserPackages = [ pkgs.virtiofsd ];
-      services.qemuGuest.enable = true;
-      services.spice-vdagentd.enable = true;
       programs.virt-manager.enable = true;
 
       # enable passwordless sudo for docker

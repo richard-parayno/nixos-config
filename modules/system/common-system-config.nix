@@ -21,7 +21,7 @@
         self.nixosModules.flatpak # flatpak support
         # self.nixosModules.flameshot # flameshot for screenshots
         self.nixosModules.satty # satty for screenshots
-        self.nixosModules.openwhispr # local dictation + transcription
+        # self.nixosModules.openwhispr # local dictation + transcription
       ];
 
       # Enable flakes
@@ -39,6 +39,12 @@
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
+      # keep builds from starving the desktop (16 GB RAM, 12 threads)
+      nix.settings.max-jobs = 2;
+      nix.settings.cores = 6;
+      nix.daemonCPUSchedPolicy = "idle";
+      nix.daemonIOSchedClass = "idle";
+
       nix.settings.trusted-users = [
         "root"
         "richard"
@@ -50,6 +56,8 @@
 
       # Locale
       i18n.defaultLocale = "en_US.UTF-8";
+      # Plasma Region settings use en_PH; without it glibc falls back to C (speech-dispatcher fails, Qt warns)
+      i18n.extraLocales = [ "en_PH.UTF-8/UTF-8" ];
       i18n.extraLocaleSettings = {
         LC_ADDRESS = "en_US.UTF-8";
         LC_CTYPE = "en_US.UTF-8";

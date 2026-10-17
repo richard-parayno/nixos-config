@@ -34,6 +34,8 @@ in
         useGlobalPkgs = true;
         useUserPackages = true;
         users.${userName}.imports = [ self.homeModules.${userName} ];
+        backupFileExtension = "hm-bak";
+        overwriteBackup = true;
       };
 
       boot.loader.efi.canTouchEfiVariables = true;
@@ -59,6 +61,8 @@ in
 
       networking.hostName = hostName;
       networking.networkmanager.enable = true;
+      # nothing here needs the network before graphical login; saves ~6s of boot
+      systemd.services.NetworkManager-wait-online.enable = false;
 
       networking.nftables.enable = true;
       virtualisation.libvirtd.firewallBackend = "nftables";

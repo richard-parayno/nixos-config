@@ -22,16 +22,16 @@
     in
     {
       imports = [
-        inputs.codex-desktop-linux.nixosModules.default
+        # inputs.codex-desktop-linux.nixosModules.default
         self.nixosModules.claude-desktop
       ];
 
-      programs.codexDesktopLinux = {
-        enable = true;
-        computerUseUi.enable = true;
-        remoteMobileControl.enable = true;
-        remoteControl.enable = true;
-      };
+      # programs.codexDesktopLinux = {
+      #   enable = true;
+      #   computerUseUi.enable = true;
+      #   remoteMobileControl.enable = true;
+      #   remoteControl.enable = true;
+      # };
 
       environment.systemPackages = with pkgs; [
         (discord.override {
