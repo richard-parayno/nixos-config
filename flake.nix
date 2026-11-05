@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     gearlever-nixpkgs.url = "github:NixOS/nixpkgs/148bab9c1c3c53136ecb44a6ea356a0ed5b39b06";
+    # nodejs 26.12.1 for Node2Shell (CVE-2026-111497); drop once nixos-unstable has it
+    nodejs-nixpkgs.url = "github:NixOS/nixpkgs/eb5a4245a565f1fdee46042a53b64bee33fc5898";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     wrapper-modules = {

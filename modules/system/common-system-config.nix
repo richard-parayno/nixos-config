@@ -31,19 +31,39 @@
       ];
       nix.settings.substituters = [
         "https://nix-community.cachix.org"
-        "https://attic.xuyh0120.win/lantian"
         "https://noctalia.cachix.org"
       ];
       nix.settings.trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
-      # keep builds from starving the desktop (16 GB RAM, 12 threads)
-      nix.settings.max-jobs = 2;
+      # eMudhra intermediate CA key compromise (Oct 2026): distrust the parent roots
+      # until nixpkgs' cacert >= 3.131.1 lands on nixos-unstable, then drop this
+      security.pki.caCertificateBlacklist = [
+        "emSign ECC Root CA - G3"
+        "Comodo AAA Services root"
+      ];
+      # 16 GB RAM, 12 threads: up to 18 build threads, deprioritised but not starved
+      nix.settings.max-jobs = 3;
       nix.settings.cores = 6;
-      nix.daemonCPUSchedPolicy = "idle";
-      nix.daemonIOSchedClass = "idle";
+      nix.daemonCPUSchedPolicy = "batch";
+      nix.daemonIOSchedClass = "best-effort";
+      nix.daemonIOSchedPriority = 7;
+
+      # pyopenjtalk-plus 0.4.1-post9: test_run_njd_from_mecab_invalid_input fails on
+      # python 3.14 (breaks calibre via piper-tts); drop once fixed upstream
+      nixpkgs.overlays = [
+        (final: prev: {
+          # speechd stopped shipping python bindings (nixpkgs#577420, fixed on master);
+          # calibre's install check imports them. drop once the fix reaches unstable
+          calibre = prev.calibre.overrideAttrs { doInstallCheck = false; };
+          pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+            (pyFinal: pyPrev: {
+              pyopenjtalk-plus = pyPrev.pyopenjtalk-plus.overridePythonAttrs { doCheck = false; };
+            })
+          ];
+        })
+      ];
 
       nix.settings.trusted-users = [
         "root"

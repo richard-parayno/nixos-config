@@ -56,7 +56,7 @@
         agent-browser
         claude-code
         # dev utils
-        nodejs_latest
+        inputs.nodejs-nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nodejs_latest
         python315
         bun
         hugo
