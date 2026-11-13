@@ -55,6 +55,7 @@
         # opencode-desktop
         agent-browser
         claude-code
+        amp-cli
         # dev utils
         inputs.nodejs-nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nodejs_latest
         python315
@@ -69,6 +70,9 @@
       # that this module installs; the bare package can't reach the desktop app.
       # The GUI side lives in modules/system/common-apps.nix.
       programs._1password.enable = true;
+
+      # amp-cli lives in the read-only store; nix handles updates
+      environment.sessionVariables.AMP_SKIP_UPDATE_CHECK = "1";
 
       # enable nix-index-database and wrap comma
       programs.nix-index-database.comma.enable = true;

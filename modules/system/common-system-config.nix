@@ -37,10 +37,10 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
-      # eMudhra intermediate CA key compromise (Oct 2026): distrust the parent roots
-      # until nixpkgs' cacert >= 3.131.1 lands on nixos-unstable, then drop this
+      # eMudhra intermediate CA key compromise (Oct 2026): distrust the parent roots.
+      # cacert 3.131.1 dropped emSign ECC Root CA - G3 (listing it now fails the build),
+      # but still ships Comodo AAA Services root; drop this once that's gone too
       security.pki.caCertificateBlacklist = [
-        "emSign ECC Root CA - G3"
         "Comodo AAA Services root"
       ];
       # 16 GB RAM, 12 threads: up to 18 build threads, deprioritised but not starved

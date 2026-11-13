@@ -16,4 +16,10 @@ in
   "github-pat.age".publicKeys = users ++ hosts;
 
   "api-keys.age".publicKeys = users ++ hosts;
+
+  # one amp orb provider token per host (Settings -> Orbs -> Add Orb Provider)
+  "amp-orb-provider-netrunner.age".publicKeys = users ++ [ netrunner ];
+
+  # amp access token (sgamp_...) for the amp-runner service
+  "amp-runner.age".publicKeys = users ++ hosts;
 }

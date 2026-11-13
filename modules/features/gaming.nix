@@ -10,7 +10,12 @@
         lsfg-vk
         lsfg-vk-ui
         boxflat
-        deadlock-mod-manager
+        # aws-lc-sys >= 0.42 is forced onto the system AWS-LC by nixpkgs
+        # (AWS_LC_SYS_USE_SYSTEM=1), but the package doesn't provide it yet.
+        (deadlock-mod-manager.overrideAttrs (old: {
+          buildInputs = old.buildInputs ++ [ aws-lc ];
+        }))
+        faugus-launcher
       ];
 
       programs.steam = {

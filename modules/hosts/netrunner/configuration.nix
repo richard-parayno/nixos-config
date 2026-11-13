@@ -67,8 +67,6 @@ in
       networking.nftables.enable = true;
       virtualisation.libvirtd.firewallBackend = "nftables";
 
-      services.scx.enable = false;
-
       hardware = {
         nvidia = {
           package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -121,9 +119,6 @@ in
           options = [ "discard" ];
         }
       ];
-
-      # use systemd to auto resolve swapfile location
-      boot.initrd.systemd.enable = true;
 
       fileSystems."/mnt/SpeedyZwei" = {
         device = "/dev/disk/by-uuid/22865d28-bd6a-4528-96b9-a9a39864492e";
