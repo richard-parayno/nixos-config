@@ -68,6 +68,7 @@
     };
     # not following nixpkgs so builds keep hitting noctalia.cachix.org
     noctalia.url = "github:noctalia-dev/noctalia-shell";
+    rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
     # zed-flake.url = "github:jamesbirtles/zed-flake/stable";
   };
 

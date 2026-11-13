@@ -38,6 +38,10 @@ in
         overwriteBackup = true;
       };
 
+      # rex shared server; members of the rex group can connect
+      services.rex.enable = true;
+      users.users.${userName}.extraGroups = [ "rex" ];
+
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.limine = {
         enable = true;
